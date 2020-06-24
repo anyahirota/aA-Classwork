@@ -2,10 +2,10 @@
 
 def convert_to_int(str)
   Integer(str)  
-  rescue ArgumentError => err 
-    puts "#Error was: #{err.message} "
-    return nil 
- 
+rescue ArgumentError => err 
+  puts "#Error was: #{err.message} "
+  return nil 
+  
   
 end
 
@@ -30,17 +30,19 @@ end
 FRUITS = ["apple", "banana", "orange"]
 
 def reaction(maybe_fruit)
-  begin
-    if FRUITS.include? maybe_fruit
-      puts "OMG, thanks so much for the #{maybe_fruit}!"
-    elsif maybe_fruit == "coffee" 
-      raise CoffeeError
-    else 
-      raise WrongFoodError
-    end
-  end 
+  if FRUITS.include? maybe_fruit
+    puts "OMG, thanks so much for the #{maybe_fruit}!"
+  elsif maybe_fruit == "coffee" 
+   raise CoffeeError
+  else 
+   raise WrongFoodError
+  end
 
-def feed_me_a_fruit
+  
+  begin
+    end 
+    
+    def feed_me_a_fruit
   puts "Hello, I am a friendly monster. :)"
 
   puts "Feed me a fruit! (Enter the name of a fruit:)"
@@ -55,7 +57,7 @@ class BestFriend
     @yrs_known = yrs_known
     @fav_pastime = fav_pastime
   end
-
+  
   def talk_about_friendship
     puts "Wowza, we've been friends for #{@yrs_known}. Let's be friends for another #{1000 * @yrs_known}."
   end
