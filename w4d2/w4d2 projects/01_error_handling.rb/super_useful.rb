@@ -37,12 +37,9 @@ def reaction(maybe_fruit)
   else 
    raise WrongFoodError
   end
-
-  
-  begin
-    end 
+end 
     
-    def feed_me_a_fruit
+def feed_me_a_fruit
   puts "Hello, I am a friendly monster. :)"
 
   puts "Feed me a fruit! (Enter the name of a fruit:)"
