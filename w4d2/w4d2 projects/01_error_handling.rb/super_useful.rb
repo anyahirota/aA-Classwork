@@ -15,7 +15,17 @@ end
 #if its not a fruit - error
 #if its coffee - error + retry 
 
-class WrongFoodError < StandardError; end
+class WrongFoodError < StandardError
+  def message
+    return "Argh!I hate the food! Give me fruit!"
+  end 
+end
+
+class CoffeeError < StandardError
+  def message
+    return "Thanks for the coffee. Please feed me food too!"
+  end 
+end
 
 FRUITS = ["apple", "banana", "orange"]
 
@@ -24,13 +34,11 @@ def reaction(maybe_fruit)
     if FRUITS.include? maybe_fruit
       puts "OMG, thanks so much for the #{maybe_fruit}!"
     elsif maybe_fruit == "coffee" 
-    end 
-
-    rescue WrongFoodError => err
-      puts "Please feed the monster fruit."
-      retry
-    end 
-end
+      raise CoffeeError
+    else 
+      raise WrongFoodError
+    end
+  end 
 
 def feed_me_a_fruit
   puts "Hello, I am a friendly monster. :)"
