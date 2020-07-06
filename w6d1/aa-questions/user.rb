@@ -5,29 +5,31 @@ require_relative 'question_like'
 require_relative 'reply'
 
 class User
-    def self.find_by_id(id)(<<-SQL, id: id)
-      SELECT
-        users.*
-      FROM
-        users
-      WHERE
-        users.id = :id
-    SQL
+    attr_accessor :id, :fname, :lname
 
-    user_data.nil? ? nil : User.new(user_data)
+    def self.all
+        data = QuestionsDatabase.instance.execute('SELECT * FROM users')
+        data.map {|datum| User.new(datum)}
+    end 
+
+    def self.find_by_id(id)
+        data = QuestionsDatabase.instance.execute(<<-SQL, id)
+            SELECT
+                *
+            FROM
+                users
+            WHERE
+                id = ?
+        SQL
+        return nil unless data.length > 0 
+        User.new(data.first)
     end
-        # data = QuestionsDatabase.instance.execute('SELECT * FROM users')
-        # data.map {|datum| User.new(datum)}
 
     def initialize(options)
         @id = options['id']
         @fname = options['fname']
         @lname = options['lname']
     end 
-
-#     def attrs
-#     { fname: fname, lname: lname }
-#   end
 
 #   def save
 #     if @id
