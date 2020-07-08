@@ -6,6 +6,12 @@ require 'active_support/inflector'
 class SQLObject
   def self.columns
     # ...
+    DBConnection.execute2(<<-SQL)
+      SELECT
+        *
+      FROM
+        cats
+    SQL
   end
 
   def self.finalize!
@@ -13,10 +19,12 @@ class SQLObject
 
   def self.table_name=(table_name)
     # ...
+    @table_name = table_name
   end
 
   def self.table_name
     # ...
+    @table_name ||= self.name.tableize #why not class.name
   end
 
   def self.all
