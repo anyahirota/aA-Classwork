@@ -1,0 +1,19 @@
+<h1>New Cat Form</h1>
+
+
+<form action="<%=cats_url%>" method="POST" >
+<label >Name
+    <input type="text" name="cat[name]" value="<%=@cat.name%>">
+</label>
+<br>
+    <p>Please select cat's sex:</p>
+        <input type="radio" id="sex_M" name="" value="<%=@cat.sex%>%">
+   
+
+</form>
+
+Use radio buttons for sex.
+Use a dropdown for color (hint: keep your code DRY by using the constant you defined on the Cat class.
+Use a blank <option> as the default color. You may want to add the text '-- select a color --' (or similar) so users know what this dropdown is for. This will force the user to consciously pick one.
+You can use the date input type to prompt the user to pick a birth date. Look this up on MDN.
+Use a textarea tag for the description.
