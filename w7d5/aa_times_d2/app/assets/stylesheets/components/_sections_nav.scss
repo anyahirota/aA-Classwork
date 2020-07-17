@@ -1,0 +1,28 @@
+.section-links {
+  font-family: $sans-serif;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    border-bottom: 1px solid lightgray;
+
+    li {
+      margin: 10px;
+      padding: 2px;
+      border-radius: 2px;
+      &:hover {
+        background-color: lightgray;
+      }
+
+      &:last-of-type {
+        text-transform: uppercase;
+        font-size: 90%;
+        &:hover {
+          background-color: transparent;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.main-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.left-nav > ul,
+.right-nav > ul {
+  display: flex;
+}
+
+.left-nav > ul > li {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.right-nav > ul > li {
+  padding: 10px;
+  margin: 5px 2px 5px 2px;
+  border-radius: 5px;
+  background: $light-blue;
+  color: white;
+}
+
+.right-nav > ul > li:last-of-type {
+  background: none;
+  color: #222;
+}
+
+.right-nav > ul > li:hover {
+  background-color: $blue;
+  border-color: $darkest-blue;
+  color: white;
+}
+
+.left-nav > ul > li:hover,
+.right-nav > ul > li:last-of-type:hover {
+  background-color: $light-gray;
+  border-color: $gray;
+  color: #222;
+}
+
+.left-nav span,
+.right-nav span {
+  font-family: $sans-serif;
+  font-weight: bold;
+}
+
+.right-nav i {
+  font-size: 120%;
+}
+
+#gear-dropdown-btn {
+  position: relative;
+}
