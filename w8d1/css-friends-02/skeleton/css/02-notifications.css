@@ -1,0 +1,30 @@
+/* PHASE 2: Notifications */
+.badge {
+    
+}
+
+.header{
+    position: relative;
+
+}
+
+.header-list > li{
+    position: relative;
+
+}
+
+.notification{
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: black;
+}
+
+li:hover > .notification{
+    display: block;
+}
+
+.notification > li:hover{
+
+}
+
