@@ -19,38 +19,38 @@ Array.prototype.myMap = function(callback) {
 }
 
 
-Array.prototype.myReduce = function(callback, initialValue) {
-    let accumulator; 
-    let arr;
-    if (initialValue === undefined) {
-        accumulator = initialValue;
-        arr = this;
-    } else {
-        accumulator = this[0];
-        arr = this.slice(1);
-    }
-
-    arr.myEach(el => accumulator = callback(accumulator, el));
-
-    return accumulator;
-}
-
-// Array#myInject
-// Array.prototype.myReduce = function (func, initialValue) {
-
-//     let arr = this;
-
+// Array.prototype.myReduce = function(callback, initialValue) {
+//     let accumulator; 
+//     let arr;
 //     if (initialValue === undefined) {
-//         initialValue = arr[0];
-//         arr = arr.slice(1);
+//         accumulator = initialValue;
+//         arr = this;
+//     } else {
+//         accumulator = this[0];
+//         arr = this.slice(1);
 //     }
 
-//     let result = initialValue;
+//     arr.myEach(el => accumulator = callback(accumulator, el));
 
-//     arr.myEach(el => result = func(result, el));
+//     return accumulator;
+// }
 
-//     return result;
-// };
+//Array#myInject
+Array.prototype.myReduce = function (func, initialValue) {
+
+    let arr = this;
+
+    if (initialValue === undefined) {
+        initialValue = arr[0];
+        arr = arr.slice(1);
+    }
+
+    let result = initialValue;
+
+    arr.myEach(el => result = func(result, el));
+
+    return result;
+};
 
 // console.log(NUMS.myReduce((total, item) => total + item));
 
