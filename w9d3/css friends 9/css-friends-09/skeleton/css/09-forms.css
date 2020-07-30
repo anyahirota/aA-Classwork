@@ -1,0 +1,15 @@
+/* PHASE 9: Forms */
+
+.form {
+    display: flex;
+}
+
+.form-fieldset {
+    border: 1px solid lightgray;
+    margin: 0 0 0 20px;
+    padding: 10px;
+    width: 500px;
+    background: #eee;
+    border-radius: 5px;
+}
+
