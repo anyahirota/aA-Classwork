@@ -8,29 +8,31 @@ export const signup = (user) => (
     })
 )
 
-export function logout() {
-    return (
-        $.ajax({
-            url: '/api/session',
-            method: 'DELETE',
-        })
-    )
-}
+// export function logout() {
+//     return (
+//         $.ajax({
+//             url: '/api/session',
+//             method: 'DELETE',
+//         })
+//     )
+// }
 
-// export const logout = () => (
-//     $.ajax({
-//         url: '/api/session',
-//         method: 'DELETE',
-//     })
-// );
-
-export const login = (user) => (
+export const logout = () => (
     $.ajax({
+        url: '/api/session',
+        method: 'DELETE',
+    })
+);
+
+export const login = (user) => {
+  
+    return $.ajax({
         url: '/api/session',
         method: 'POST', 
         data: {user},
     })
-)
+}
+
 
 // export const fetchAllPokemon = () => (
 //     $.ajax({
