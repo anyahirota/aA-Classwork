@@ -53,7 +53,7 @@ function sumArray(array) {
 // reverseString("friends")     // => "sdneirf"
 function reverseString(str) {
     if (str.length === 0) return ""; 
-    
+    return str[str.length - 1] + reverseString(str.slice(0, str.length - 1))
 }
 
 
@@ -74,7 +74,13 @@ function reverseString(str) {
 // pow(3, 4)    // => 81
 // pow(2, -5)   // => 0.03125
 function pow(base, exponent) {
-
+    if (exponent === 0) return 1; 
+    if (exponent > 0) {
+        return base * pow(base, exponent-1)
+    } else {
+        let exp = exponent * -1
+        return 1/(base * pow(base, (exp-1)))
+    }
 }
 
 
@@ -107,7 +113,13 @@ function pow(base, exponent) {
 //     2-dimensional array: [['some data']]
 //     3-dimensional array: [[['some data']]]
 function flatten(data) {
-
+    // if (Array.isArray(data)) return [data]; 
+    // let flattened = [];    
+    // for (let i = 0; i < data.length; i++) {
+    //     let res = flatten(data[i]); 
+    //     flattened.push(...res); 
+    // }
+    // return flattened; 
 }
 
 // Write a function, fileFinder(directories, targetFile), that accepts an object representing directories and a string respresenting a filename.
